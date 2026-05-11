@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 
+import { errorHandler } from './middleware/errorHandler';
 import taskRoutes from './routes/taskRoutes';
 
 export const app = express();
@@ -13,3 +14,5 @@ app.get('/health', (_req, res) => {
 });
 
 app.use('/tasks', taskRoutes);
+
+app.use(errorHandler);
