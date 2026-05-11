@@ -120,6 +120,25 @@ describe('Task API', () => {
     );
   });
 
+  test('redirects the root route to Swagger UI', async () => {
+    const response = await request(app).get('/');
+
+    expect(response.status).toBe(302);
+    expect(response.headers.location).toBe('/api-docs');
+  });
+
+  test('serves Swagger UI', async () => {
+    const response = await request(app).get('/api-docs');
+
+    expect(response.status).toBe(301);
+    expect(response.headers.location).toBe('/api-docs/');
+
+    const redirectedResponse = await request(app).get('/api-docs/');
+
+    expect(redirectedResponse.status).toBe(200);
+    expect(redirectedResponse.text).toContain('Swagger UI');
+  });
+
   test('serves the OpenAPI document', async () => {
     const response = await request(app).get('/api-docs.json');
 

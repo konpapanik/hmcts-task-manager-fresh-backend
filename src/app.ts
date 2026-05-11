@@ -11,6 +11,10 @@ export const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (_req, res) => {
+  res.redirect('/api-docs');
+});
+
 app.get('/health', (_req, res) => {
   res.status(200).json({ status: 'ok' });
 });
@@ -19,7 +23,8 @@ app.get('/api-docs.json', (_req, res) => {
   res.status(200).json(openApiSpec);
 });
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openApiSpec));
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(openApiSpec));
 
 app.use('/tasks', taskRoutes);
 

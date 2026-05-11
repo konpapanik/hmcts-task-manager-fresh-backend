@@ -61,6 +61,8 @@ npm run dev
 
 The API runs on `http://localhost:4000`.
 
+Opening `http://localhost:4000/` redirects to the Swagger UI.
+
 Swagger UI is available at `http://localhost:4000/api-docs`.
 
 The raw OpenAPI JSON is available at `http://localhost:4000/api-docs.json`.
