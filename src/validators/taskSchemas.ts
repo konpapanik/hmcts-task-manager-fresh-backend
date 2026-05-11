@@ -6,7 +6,11 @@ const futureDateString = z.string().datetime('dueDate must be a valid ISO date-t
 }, 'dueDate must be in the future');
 
 export const taskIdParamsSchema = z.object({
-  id: z.coerce.number().int('id must be an integer').positive('id must be a positive integer'),
+  id: z
+    .string()
+    .regex(/^\d+$/, 'id must be a positive integer')
+    .transform(value => Number(value))
+    .refine(value => Number.isInteger(value) && value > 0, 'id must be a positive integer'),
 });
 
 export const createTaskSchema = z.object({
