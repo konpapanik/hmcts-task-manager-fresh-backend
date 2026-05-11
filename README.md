@@ -33,9 +33,19 @@ npm install
 
 2. Copy the environment file if needed:
 
+macOS/Linux:
+
 ```bash
 cp .env.example .env
 ```
+
+Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+You can also create `.env` manually by copying the values from `.env.example`.
 
 3. Run the Prisma migration:
 
@@ -112,3 +122,13 @@ npm test
 ```
 
 The tests cover the main CRUD flow plus validation errors.
+
+## Platform notes
+
+The backend can be run on both macOS and Windows.
+
+A few notes:
+
+- the documented commands are mostly shell-agnostic, but file copy examples differ between Unix shells and Windows PowerShell
+- the API, tests, Prisma migration, and TypeScript build are otherwise cross-platform
+- if `localhost:4000` is already in use, change the port in your environment before starting the app
