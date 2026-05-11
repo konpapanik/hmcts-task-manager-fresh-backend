@@ -51,6 +51,10 @@ npm run dev
 
 The API runs on `http://localhost:4000`.
 
+Swagger UI is available at `http://localhost:4000/api-docs`.
+
+The raw OpenAPI JSON is available at `http://localhost:4000/api-docs.json`.
+
 ## Frontend connection
 
 The frontend is expected to call this backend at `http://localhost:4000`.
@@ -66,6 +70,8 @@ So if both apps are running locally with default settings, they connect automati
 ## API endpoints
 
 - `GET /health`
+- `GET /api-docs`
+- `GET /api-docs.json`
 - `POST /tasks`
 - `GET /tasks`
 - `GET /tasks/:id`

@@ -119,4 +119,13 @@ describe('Task API', () => {
       ])
     );
   });
+
+  test('serves the OpenAPI document', async () => {
+    const response = await request(app).get('/api-docs.json');
+
+    expect(response.status).toBe(200);
+    expect(response.body.openapi).toBe('3.0.3');
+    expect(response.body.paths['/tasks']).toBeDefined();
+    expect(response.body.paths['/tasks/{id}/status']).toBeDefined();
+  });
 });
