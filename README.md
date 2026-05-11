@@ -134,3 +134,9 @@ A few notes:
 - the documented commands are mostly shell-agnostic, but file copy examples differ between Unix shells and Windows PowerShell
 - the API, tests, Prisma migration, and TypeScript build are otherwise cross-platform
 - if `localhost:4000` is already in use, change the port in your environment before starting the app
+
+## Screenshot
+
+The backend exposes a Swagger UI so the API can be explored and tested from the browser.
+
+![Backend Swagger UI](./Screenshot%202026-05-11%20at%2018.49.31.png)
